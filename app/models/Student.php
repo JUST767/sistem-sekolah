@@ -3,27 +3,42 @@ namespace App\Models;
 require_once '../app/core/Database.php';
 
 use App\Core\Database;
-Class Student extends Database
+class Student extends Database
 {
-protected $table = 'students';
+    protected $table = 'students';
 
-// Fungsi untuk menampilkan Daftar Siswa
-public function getStudents()
-{
-    $students =[];
+    // Fungsi untuk menampilkan Daftar Siswa
+    public function getStudents()
+    {
+        $students = [];
 
-    $query = "SELECT * FROM {$this->table}";
-    $stmt = $this->connection->prepare($query);
-    $stmt->execute();
+        $query = "SELECT * FROM {$this->table}";
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute();
 
-    $result = $stmt->get_result();
+        $result = $stmt->get_result();
 
-    while($student = $result->fetch_assoc()) {
-        $students[] = $student;
+        while ($student = $result->fetch_assoc()) {
+            $students[] = $student;
+        }
+
+        return $students;
     }
 
-    return $students;
-}
+    // fungsi untuk menampilkan detail siswa 
+    public function getStudent(int $id)
+    {
+        $query = "SELECT * FROM {$this->table} WHERE id = ?";
+        $stmt = $this->connection->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $student = $result->fetch_assoc();
+
+        return $student;
+    }
+
 }
 
 ?>
