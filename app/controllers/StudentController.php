@@ -36,6 +36,12 @@ class StudentController extends Controller
     {
         $this->view ('students.index');
     }
+
+    public function store()
+    {
+        $studentModel = new Student();
+        $studentModel->insert($_POST);
+    }
 }
 
 
