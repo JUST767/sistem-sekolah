@@ -34,7 +34,12 @@ class StudentController extends Controller
     }
         public function edit(string $id)
     {
-        $this->view ('students.index');
+        $id = intval($id);
+        $studentModel = new Student();
+        $student = $studentModel->getStudent($id); 
+        $this->view ('students.edit', [
+            'student'=> $student
+        ]);
     }
 
     public function store()

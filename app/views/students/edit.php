@@ -8,26 +8,28 @@
 
     <!-- Card Content Start -->
     <div class="bg-white rounded-lg shadow mt-8">
-        <form class="p-4 grid grid-cols-2 gap-4" action="">
+        <form action="/students/<?= $student['id']?>" method="POST" class="p-4 grid grid-cols-2 gap-4" action="">
+            input type= "hidden" name="_method">
+
             <div class="space-y-2">
                 <label class="font-bold block" for="name">Nama</label>
-                <input class="px-4 py-2 border rounded-lg w-full" type="text" name="name" id="name"
+                <input value="<?= $student['name']?>" class="px-4 py-2 border rounded-lg w-full" type="text" name="name" id="name"
                     placeholder="Masukkan Nama">
             </div>
             <div class="space-y-2">
                 <label class="font-bold block" for="nis">NIS</label>
-                <input class="px-4 py-2 border rounded-lg w-full" type="text" name="nis" id="nis"
+                <input value="<?= $student['nis']?>" class="px-4 py-2 border rounded-lg w-full" type="text" name="nis" id="nis"
                     placeholder="Masukkan NIS">
             </div>
             <div class="space-y-2">
                 <label class="font-bold block" for="class">Kelas</label>
-                <input class="px-4 py-2 border rounded-lg w-full" type="text" name="class" id="class"
+                <input value="<?= $student['class']?>"class="px-4 py-2 border rounded-lg w-full" type="text" name="class" id="class"
                     placeholder="Masukkan Kelas">
             </div>
 
             <div class="space-y-2">
                 <label class="font-bold block" for="phone_number">No. Telepon</label>
-                <input class="px-4 py-2 border rounded-lg w-full" type="text" name="phone_number" id="phone_number"
+                <input value="<?= $student['phone_number']?>" class="px-4 py-2 border rounded-lg w-full" type="text" name="phone_number" id="phone_number"
                     placeholder="Masukkan Nomor Telepon">
             </div>
             <div class="flex justify-end gap-4 col-span-2">
